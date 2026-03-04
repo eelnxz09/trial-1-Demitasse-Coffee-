@@ -6,22 +6,21 @@ import { defineConfig, loadEnv } from 'vite';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/trial-1-Demitasse-Coffee-/',  // 👈 ADD THIS
+  base: '/trial-1-Demitasse-Coffee-/',
 
-    plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss()],
 
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+  define: {
+    'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+  },
+
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '.'),
     },
+  },
 
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '.'),
-      },
-    },
-
-    server: {
-      hmr: process.env.DISABLE_HMR !== 'true',
-    },
-  };
-});
+  server: {
+    hmr: process.env.DISABLE_HMR !== 'true',
+  },
+};
