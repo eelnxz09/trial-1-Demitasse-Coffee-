@@ -22,8 +22,55 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { MENU_DATA } from './data/menu';
 
+const REVIEWS = [
+  {
+    name: "Talk Over Food",
+    text: "Demitasse Café has become my go-to spot in NIBM, and for good reason. Whether you’re craving some fresh air in their lush green outdoor seating or prefer a cozy indoor setting, this place nails both. The vibes are perfect for relaxing.",
+  },
+  {
+    name: "Akash M",
+    text: "Great cafe to hangout with your friends and family. They have a great section for co-workers, where you can freely work, with very good wifi and air conditioning.",
+  },
+  {
+    name: "Kanav Bhardwaj",
+    text: "Demitasse cafe is an amazing place if you want to spend some peaceful time away from the noise of the city. The food quality and service is to the point. Not to forget about the cozy upstairs that they provide for sitting.",
+  },
+  {
+    name: "Imtiaz Ali Syed",
+    text: "Demitasse in Pune's Salunke Vihar is a delightful vegetarian coffee shop that also offers brunch items. The friendly staff and extensive coffee menu make it a must-visit. The diverse coffee options and warm ambiance make it a perfect spot for a cozy brunch.",
+  },
+  {
+    name: "rozy ahmed",
+    text: "Nice cafe to hangout. Food is clean, delicious and wholesome. Staff is very responsive and service was top notch. Highly recommend this cafe to hangout with friends or to just chill alone reading a book or doing your homework.",
+  },
+  {
+    name: "Mohammad Saad Giram",
+    text: "We ordered Hot chocolate and cafe Frappe and Chicken Katsu Curry and it was very goood in taste. And staff was very cooperative. They also let us paint there",
+  },
+  {
+    name: "Parade Pooja",
+    text: "Loved the food and ambience. Best place to solo dates as they kept some books for reading. we went there after having a bad experience in another cafe,we told them that we just came from another cafe coz their blueberry shake was a disaster",
+  },
+  {
+    name: "Parth Tashildar",
+    text: "Their food is so amazing specially the pasta and garlic loaf. Having cup of coffee and this ambiance wins the heart. Must visit place.",
+  },
+  {
+    name: "Muntaha Shaikh",
+    text: "I recently visited Demitasse and it was an absolute delight! The moment you step in, you’re greeted by a warm, inviting ambiance that’s perfect for both relaxing and working. The decor is charming with soft lighting and comfortable seating.",
+  },
+  {
+    name: "Anushka Singh",
+    text: "Absolutely love the food and the drinks. Love the enthusiasm with which they celebrate festivals and the ambiance that they provide. The staff is also very polite and friendly.",
+  },
+  {
+    name: "fatema harnesswala",
+    text: "The Korean Fried Chicken was amazing and so was the Chicken Hummus Platter .The hummus was soft and smooth. The pasta was also tasty 👍🏻. Definitely will visit again with a bigger group",
+  }
+];
+
 const IMAGES = {
-  logo: "https://placehold.co/400x400/000000/FFFFFF?text=Demitasse+Coffee", // Placeholder for user-provided logo
+  logo: "https://placehold.co/400x400/5A5A40/FFFFFF?text=Demitasse&font=playfair-display",
   hero: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1kRUZNLzZZPKgYsBiEE1uzCDV3P8u4Uy2OvgYBYjjMMCrlX9_1Mo2aK2z4ieozSN8wRqsWX3TmO9zKFzQkgzGkhvcGPYrQ4fEiD5g2hR8NS-dXspfJaI8Uf5y9SOV0ggfdzyfY-GJtEY2tMMkxJpNg1WoqaKSsnNsURH8RM2DIMQYQhN9epv3VUyiQ1gl3SWHQWl3Mxa6WQe8zElvk9uw7VbLVfYNaY1C-wmAKjJtrl5mIRixOuEO3bTrgqV50ThKMUBlyWPurpw",
   about1: "https://lh3.googleusercontent.com/aida-public/AB6AXuDto73jfcOPXc1FbjXVxAzA4IdkHVbcBMMH_q8WkSO9raIiprsrV2JrGQztR_EhgEw6Pfd5_HL0qJKYt34XsDSxOj3adeobYAW09LQTvH_qGih_l-6MpFWnV34Mg_6G5yjnwO0pjcYYfCmysinI5GUwFCE0MuyFonbFieq-iTly_HoQrPufC_0D5ZxtLNW2G0p8CNN310q6oyxdrhl-Gt1En1Yov5N7UaT-GxaMVrtgIdW4VekhHslW1YtjDiTVlyG8UUYS9_rIwpw",
   barista: "https://lh3.googleusercontent.com/aida-public/AB6AXuCASOLwvzhU_srq2M5bUy6SQhwSVc-69lGp_peKHR8s8QsAAAwIq6onHCRAExINlw_hl_rzUPWb_RImExSBHQqa5Apy0wN3pFGhx7K5s7h2Cd6Kot03x6Vwbch3AAxxQYYiAFloip26R-WhdrbJQw_xk6C1HXzb4zN8cWJuepBLRyadgv_yKlU1A2c6Yfqzl6aoBhJZSRy3-I5LIuDZNYZmXPV3NAqQHHHOeWv5U01B5WyXJ1lTisyfjtQAg4onEFp50AXQO14aPos",
@@ -69,10 +116,117 @@ const IMAGES = {
   map: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcBaCdCJSvok1Rf6y3brN_X3FFoBzDaoFh9rXcrcHWh_-_4X5SIVN8mYq4v_QbzYStDLV_pZ_KwGesKb-Fl5HWHcig8OyIA18DNnI6Ww4MAT67Snj1-pUfipO9gLXHPbx_o6xkiBGBGxgBS7ypJm06f0xTWYIeuapdaz8KuzvbeHorixVaYbjENT3NKrOsTqsGwmmnBdiuL5Oa_EwAdo-HWzSFvy6OdU97A3m4tlJ3sd3r2j81tLTUzbvpkOnc0TqhlCSfZKBLMPQ"
 };
 
+const FooterCredits = () => {
+  const [text, setText] = React.useState("");
+  const [ripples, setRipples] = React.useState<{x: number, y: number, id: number}[]>([]);
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    let idx = 0;
+    let deleting = false;
+    let timer: NodeJS.Timeout;
+    const creditsText = "< Code By Neel />";
+
+    const typeIt = () => {
+      if (!deleting && idx <= creditsText.length) {
+        setText(creditsText.substring(0, idx++));
+        if (idx > creditsText.length) {
+          timer = setTimeout(() => { deleting = true; typeIt(); }, 2200);
+          return;
+        }
+      } else if (deleting && idx >= 0) {
+        setText(creditsText.substring(0, idx--));
+        if (idx < 0) {
+          deleting = false;
+          idx = 0;
+          if (Math.random() > 0.65) {
+            timer = setTimeout(hackEffect, 900);
+            return;
+          }
+        }
+      }
+      timer = setTimeout(typeIt, deleting ? 75 : Math.random() * 160 + 90);
+    };
+
+    const hackEffect = () => {
+      const hacks = [
+        "< Get In Touch />",
+        "< 01001110 01100101 01100101 01101100 />",
+      ];
+      const txt = hacks[Math.floor(Math.random() * hacks.length)];
+      let i = 0;
+      const typeHack = () => {
+        setText(txt.substring(0, i++));
+        if (i <= txt.length) {
+          timer = setTimeout(typeHack, 46);
+        } else {
+          timer = setTimeout(() => { idx = 0; deleting = false; typeIt(); }, 1600);
+        }
+      };
+      typeHack();
+    };
+
+    timer = setTimeout(typeIt, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (wrapperRef.current) {
+      const r = wrapperRef.current.getBoundingClientRect();
+      const newRipple = {
+        x: e.clientX - r.left,
+        y: e.clientY - r.top,
+        id: Date.now()
+      };
+      setRipples(prev => [...prev, newRipple]);
+      setTimeout(() => {
+        setRipples(prev => prev.filter(rip => rip.id !== newRipple.id));
+      }, 850);
+    }
+    window.open("https://neel-develops.github.io/portfolio/", "_blank");
+  };
+
+  return (
+    <div 
+      ref={wrapperRef}
+      onClick={handleClick}
+      className="relative overflow-hidden cursor-pointer inline-flex items-center justify-center px-6 py-3 rounded-lg border border-primary/30 bg-primary/10 hover:bg-primary/20 transition-colors group mt-6"
+    >
+      <span className="font-mono text-primary font-bold tracking-wider relative z-10">
+        {text}
+        <span className="animate-pulse">_</span>
+      </span>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-lg">
+        {ripples.map(ripple => (
+          <span 
+            key={ripple.id}
+            className="absolute bg-primary/40 rounded-full animate-ripple"
+            style={{
+              left: ripple.x,
+              top: ripple.y,
+              width: 100,
+              height: 100,
+              transform: 'translate(-50%, -50%) scale(0)'
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState(MENU_DATA[0].name);
   const [searchQuery, setSearchQuery] = React.useState("");
+  const [currentReview, setCurrentReview] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const filteredItems = MENU_DATA.find(c => c.name === activeCategory)?.items.filter(item => 
     item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -82,11 +236,11 @@ export default function App() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full bg-background-light/80 backdrop-blur-md border-b border-primary/10">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={IMAGES.logo} alt="Demitasse Logo" className="size-10 object-contain rounded-full" />
-            <h1 className="font-serif text-2xl font-bold tracking-tight">Demitasse</h1>
+      <header className="sticky top-0 z-50 w-full bg-background-light/90 backdrop-blur-md border-b border-primary/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2 md:gap-3">
+            <img src={IMAGES.logo} alt="Demitasse Logo" className="size-8 md:size-10 object-contain rounded-full bg-white" />
+            <h1 className="font-serif text-xl md:text-2xl font-bold tracking-tight hidden sm:block">Demitasse</h1>
           </div>
 
           <nav className="hidden md:flex items-center gap-10">
@@ -101,20 +255,21 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <a 
               href="https://www.zomato.com/pune/demitasse-coffee-nibm-road" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+              className="bg-primary text-white px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-[11px] md:text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform whitespace-nowrap"
             >
-              Order Online
+              <span className="sm:hidden">Order</span>
+              <span className="hidden sm:inline">Order Online</span>
             </a>
             <button 
-              className="md:hidden p-2"
+              className="md:hidden p-1 text-slate-800"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X /> : <MenuIcon />}
+              {isMenuOpen ? <X className="size-6" /> : <MenuIcon className="size-6" />}
             </button>
           </div>
         </div>
@@ -154,14 +309,14 @@ export default function App() {
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative z-10 glass-card p-8 md:p-16 rounded-3xl max-w-4xl text-center text-white"
+          className="relative z-10 bg-black/40 backdrop-blur-md border border-white/10 p-8 md:p-16 rounded-3xl max-w-4xl text-center text-white shadow-2xl"
         >
           <span className="inline-block px-4 py-1 rounded-full bg-primary/20 border border-primary/30 text-white text-xs font-bold uppercase tracking-widest mb-6">
             Pune's Boutique Sanctuary
@@ -249,10 +404,10 @@ export default function App() {
               </div>
             </div>
             
-            <button className="flex items-center gap-2 text-primary font-bold group">
-              Learn about our heritage 
+            <a href="#workspaces" className="inline-flex items-center gap-2 text-primary font-bold group">
+              Explore our spaces 
               <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -419,27 +574,38 @@ export default function App() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-24 px-6 bg-accent-cream">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-10 flex justify-center gap-1 text-primary">
-            {[...Array(5)].map((_, i) => <Star key={i} className="size-6 fill-current" />)}
-          </div>
-          <h3 className="font-serif text-3xl md:text-4xl italic mb-12 leading-relaxed text-slate-800">
-            "The only cafe in Pune where I can actually finish my work while enjoying the best Korean chicken in town. The vibe is unparalleled."
-          </h3>
-          <div className="flex items-center justify-center gap-4">
-            <div className="size-14 rounded-full overflow-hidden bg-slate-200 shadow-md">
-              <img 
-                src={IMAGES.testimonial} 
-                alt="Testimonial author" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+      <section className="py-24 px-6 bg-accent-cream overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative h-[450px] md:h-[300px] flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentReview}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 flex flex-col items-center justify-center px-4"
+            >
+              <h3 className="font-serif text-xl md:text-3xl italic mb-6 leading-relaxed text-slate-800 max-w-3xl">
+                "{REVIEWS[currentReview].text}"
+              </h3>
+              <div className="mb-6 flex justify-center gap-1 text-primary">
+                {[...Array(5)].map((_, i) => <Star key={i} className="size-5 md:size-6 fill-current" />)}
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-base md:text-lg">{REVIEWS[currentReview].name}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          
+          <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 mt-8 z-20">
+            {REVIEWS.map((_, i) => (
+              <button 
+                key={i}
+                onClick={() => setCurrentReview(i)}
+                className={`size-2 rounded-full transition-all ${i === currentReview ? 'bg-primary w-6' : 'bg-primary/20'}`}
+                aria-label={`Go to review ${i + 1}`}
               />
-            </div>
-            <div className="text-left">
-              <p className="font-bold text-lg">Ananya Deshpande</p>
-              <p className="text-xs text-muted-green uppercase tracking-wider font-semibold">Freelance Designer</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -448,14 +614,14 @@ export default function App() {
       <section id="gallery" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <h3 className="font-serif text-4xl font-bold mb-12 text-center">Aesthetic Moments</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {IMAGES.gallery.map((img, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className={`rounded-2xl overflow-hidden relative group ${i % 3 === 1 ? 'md:row-span-2' : ''}`}
+                className={`rounded-2xl overflow-hidden relative group ${i % 3 === 1 ? 'md:row-span-2' : ''} aspect-square sm:aspect-auto`}
               >
                 <img 
                   src={img} 
@@ -511,12 +677,20 @@ export default function App() {
               </div>
             </div>
             <div className="mt-12 flex flex-wrap gap-4">
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=Demitasse+Coffee+La+Ventana+NIBM+Road+Pune" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+              >
                 Get Directions
-              </button>
-              <button className="border border-primary text-primary px-8 py-4 rounded-full font-bold hover:bg-primary/5 transition-colors">
+              </a>
+              <a 
+                href="tel:+919112266684"
+                className="border border-primary text-primary px-8 py-4 rounded-full font-bold hover:bg-primary/5 transition-colors"
+              >
                 Call Now
-              </button>
+              </a>
             </div>
           </div>
           
@@ -548,36 +722,48 @@ export default function App() {
                 Blending a peaceful garden vibe with a productive workspace. Your boutique sanctuary for handcrafted coffee and gourmet cuisine in Pune.
               </p>
               <div className="flex gap-4">
-                {[Instagram, Facebook, Twitter, Mail].map((Icon, i) => (
-                  <a key={i} href="#" className="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
-                    <Icon className="size-5" />
-                  </a>
-                ))}
+                <a href="https://www.instagram.com/demitasse.coffee/" target="_blank" rel="noopener noreferrer" className="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+                  <Instagram className="size-5" />
+                </a>
+                <a href="#" className="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+                  <Facebook className="size-5" />
+                </a>
+                <a href="#" className="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+                  <Twitter className="size-5" />
+                </a>
+                <a href="mailto:info@demitasse.com" className="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+                  <Mail className="size-5" />
+                </a>
               </div>
             </div>
             
             <div>
               <h5 className="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Navigation</h5>
               <ul className="space-y-4 text-slate-400">
-                {['About Our Space', 'Food & Brews', 'Co-working Plans', 'Events & Workshops'].map((item) => (
-                  <li key={item}><a href="#" className="hover:text-white transition-colors">{item}</a></li>
-                ))}
+                <li><a href="#home" className="hover:text-white transition-colors">About Our Space</a></li>
+                <li><a href="#the-menu" className="hover:text-white transition-colors">Food & Brews</a></li>
+                <li><a href="#workspaces" className="hover:text-white transition-colors">Co-working Plans</a></li>
+                <li><a href="#gallery" className="hover:text-white transition-colors">Gallery</a></li>
               </ul>
             </div>
             
             <div>
               <h5 className="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Support</h5>
               <ul className="space-y-4 text-slate-400">
-                {['Contact Us', 'Privacy Policy', 'Refund Policy', 'Terms of Service'].map((item) => (
-                  <li key={item}><a href="#" className="hover:text-white transition-colors">{item}</a></li>
-                ))}
+                <li><a href="#location" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Refund Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-            <p>© 2024 Demitasse Coffee House. All rights reserved.</p>
-            <p>Handcrafted in Pune</p>
+          <div className="pt-8 border-t border-white/5 flex flex-col items-center gap-6 text-slate-500 text-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4">
+              <p>© 2024 Demitasse Coffee House. All rights reserved.</p>
+              <p>Handcrafted in Pune</p>
+            </div>
+            <FooterCredits />
           </div>
         </div>
       </footer>
