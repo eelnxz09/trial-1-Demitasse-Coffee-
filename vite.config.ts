@@ -3,10 +3,13 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
-  return {
-  base: '/trial-1-Demitasse-Coffee-/',
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+
+export default defineConfig({
+  plugins: [react()],
+  base: "/trial-1-Demitasse-Coffee-/"
+})
 
   plugins: [react(), tailwindcss()],
 
